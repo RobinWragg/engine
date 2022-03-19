@@ -1,0 +1,20 @@
+{
+  "settings": {
+    
+  },
+  "folders":
+  [
+    {
+      "path": ".",
+    },
+  ],
+  "build_systems":
+  [
+    {
+      "name": "Jai Project",
+      "shell_cmd": "jai build.jai && engine.exe",
+      "working_dir": "$project_path",
+      "file_regex": "(^.+?):(\\d+),(\\d+):\\s+(?=Error:|Warning:|Assertion failed)(?:Error:\\s+)?([^.].+?)$",
+    }
+  ],
+}
