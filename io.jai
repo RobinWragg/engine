@@ -60,7 +60,7 @@ load_obj_file :: (file_path: string) -> []v3 {
     }
   }
   
-  ordered_vertices := NewArray(indices.count, v3);
+  ordered_vertices := NewArray(indices.count, v3); // rwtodo ctrl+R displays this!?
   
   for indices {
     ordered_vertices[it_index] = vertices[it];
