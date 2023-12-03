@@ -5,13 +5,11 @@ exe_name :: "engine";
 #scope_file ////////////////////////////////////////////////////////////////////////////////////////
 
 build :: () {
-  build_opts := get_build_options();
-  build_opts.output_type = .NO_OUTPUT;
-  set_build_options(build_opts);
+  set_build_options_dc(.{do_output=false});
   
   main_workspace := compiler_create_workspace("main");
   
-  build_opts = get_build_options(main_workspace);
+  build_opts := get_build_options(main_workspace);
   build_opts.output_type = .EXECUTABLE;
   build_opts.output_executable_name = exe_name;
   set_build_options(build_opts, main_workspace);
