@@ -201,7 +201,7 @@ window_pos_to_scene_direction :: (pos: v2) -> v3 #must {
 #scope_file ////////////////////////////////////////////////////////////////////////////////////////
 
 Vertex_Buffer :: struct {
-  using platform_buffer : Platform_Vertex_Buffer = ---;
+  #as using platform_buffer : Platform_Vertex_Buffer = ---;
 }
 
 Texture :: struct {
@@ -216,7 +216,7 @@ add_texture :: (name: string, id: u32) {
   assert(!texture_exists(name), tprint("Texture name collision: '%'", name));
   
   texture : Texture = ---;
-  texture.name = copy(name);
+  texture.name = copy_string(name);
   texture.id = id;
   
   array_add(*textures, texture);
