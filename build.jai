@@ -19,8 +19,6 @@ build :: () {
   set_working_directory(#filepath);
   root_files := file_list(".");
   
-  set_output_executable_name(exe_name);
-  
   for root_files {
     if it != "./build.jai" && ends_with_nocase(it, ".jai") {
       print("Adding %\n", it);
