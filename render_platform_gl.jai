@@ -363,8 +363,8 @@ build_all_programs :: () -> []Program #must {
     // rwsubltodo: couldn't autocomplete it_index
     assert(it == it_index); // Ensure that nothing funky is going on with explicit enum values
     
-    program_name_lowercase := t_copy(programs_name_strs[it]);
-    to_lower(program_name_lowercase);
+    program_name_lowercase := copy_string(programs_name_strs[it]);
+    to_lower_in_place(program_name_lowercase);
     
     append(*string_builder, shaders_directory);
     append(*string_builder, "/");
