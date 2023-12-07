@@ -1,5 +1,5 @@
 Cube :: struct {
-  using entity : Entity;
+  #as using entity : Entity;
   
   entity.init = (using self: *Entity) {
     positions : [..]v3; defer array_free(positions);

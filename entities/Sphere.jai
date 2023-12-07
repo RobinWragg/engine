@@ -1,7 +1,7 @@
 // rwtodo: I wonder if I can statically assert that the type was set?
 
 Sphere :: struct {
-  using entity : Entity;
+  #as using entity : Entity;
   
   entity.init = (using self: *Entity) {
     vertices : [..]v3; defer array_free(vertices);

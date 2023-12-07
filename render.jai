@@ -106,7 +106,7 @@ render :: (renderable: Renderable, matrix_nullable: *m4 = null) {
     if matrix_nullable {
         matrix = <<matrix_nullable;
     } else {
-        matrix = Matrix4_Identity();
+        matrix = Matrix4_Identity;
     }
     
     for renderable.buffers {
@@ -125,7 +125,7 @@ render_triangles_slow :: (vertex_positions: []v3, color: v4, matrix: *m4 = null)
     if matrix {
         render(immediate_vbuffer, <<matrix);
     } else {
-        render(immediate_vbuffer, matrix4_identity());
+        render(immediate_vbuffer, Matrix4_Identity);
     }
 }
 
@@ -198,7 +198,7 @@ window_pos_to_scene_direction :: (pos: v2) -> v3 #must {
     return normalize(scene_coord.xyz - active_camera.pos);
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 Vertex_Buffer :: struct {
     #as using platform_buffer : Platform_Vertex_Buffer = ---;

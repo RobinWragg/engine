@@ -1,5 +1,3 @@
-#run build_entities();
-
 Entity :: struct {
   pos : v3;
   renderable : Renderable;
@@ -49,26 +47,10 @@ t_apply_entity_transform :: (vertices: []v3, entity: *Entity) -> []v3 #must {
   return transformed_vertices;
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 get_matrix :: (using entity: *Entity) -> m4 #must {
   return make_translation_matrix4(pos);
-}
-
-// compile-time ////////////////////////////////////////////////////////////////////////////////////
-
-entities_directory :: "entities";
-file_extension :: ".jai";
-
-build_entities :: () {
-  entity_files := file_list(entities_directory);
-  
-  for entity_files {
-    if ends_with_nocase(it, file_extension) {
-      print("Adding %\n", it);
-      add_build_file(it);
-    }
-  }
 }
 
 #import "File_Utilities";

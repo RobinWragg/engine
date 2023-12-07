@@ -69,6 +69,6 @@ load_obj_file :: (file_path: string) -> []v3 {
   return ordered_vertices;
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 #import "File";

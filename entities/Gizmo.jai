@@ -1,7 +1,7 @@
 // rwtodo: I wonder if I can statically assert that the type was set?
 
 Gizmo :: struct {
-  using entity : Entity;
+  #as using entity : Entity;
   
   entity.init = (self: *Entity) {
     using cast(*Gizmo) self; // rwsubltodo

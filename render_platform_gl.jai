@@ -17,7 +17,9 @@ render_platform_init :: () {
   assert(version_major >= 3);
   assert(version_minor >= 3 || version_major > 3);
   
-  gl_load(*gl);
+  gl_load(*gl); // rwtodo: Failing with GL_INVALID_ENUM on macOS.
+
+  check_error();
   
   glGenVertexArrays(1, *vao);
   glBindVertexArray(vao);
@@ -271,7 +273,7 @@ render_platform_load_texture :: (width: int, height: int, pixels: []v4) -> u32 #
   return texture;
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 shaders_directory :: "shaders";
 
@@ -360,7 +362,6 @@ build_all_programs :: () -> []Program #must {
   reset(*string_builder);
   
   for programs_enum_values {
-    // rwsubltodo: couldn't autocomplete it_index
     assert(it == it_index); // Ensure that nothing funky is going on with explicit enum values
     
     program_name_lowercase := copy_string(programs_name_strs[it]);
@@ -472,4 +473,4 @@ check_error :: () {
 
 #run compiler_set_type_info_flags(GL_Procedures, .NO_SIZE_COMPLAINT);
 #import "GL";
-#import "String"; // rwsubltodo: doublequotes don't work correctly when typing this.
+#import "String";

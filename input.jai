@@ -146,7 +146,7 @@ process_input_from_platform :: (should_quit: *bool) {
     normalize(*wasd); // rwtodo specify fallback?
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 Mouse :: struct {
     #as using window_pos : v2; // Position in window space, not pixel space.

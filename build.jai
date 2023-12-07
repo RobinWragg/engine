@@ -2,7 +2,7 @@
 
 exe_name :: "engine";
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 build :: () {
   set_build_options_dc(.{do_output=false});
@@ -17,14 +17,23 @@ build :: () {
   compiler_begin_intercept(main_workspace);
   
   set_working_directory(#filepath);
-  root_files := file_list(".");
-  
-  for root_files {
-    if it != "./build.jai" && ends_with_nocase(it, ".jai") {
-      print("Adding %\n", it);
-      add_build_file(it, main_workspace);
-    }
-  }
+  print("Working directory: %\n", get_working_directory());
+
+  add_build_file("main.jai", main_workspace);
+  add_build_file("rw_math.jai", main_workspace);
+  add_build_file("editor.jai", main_workspace);
+  add_build_file("io.jai", main_workspace);
+  add_build_file("render_platform_gl.jai", main_workspace);
+  add_build_file("entity.jai", main_workspace);
+  add_build_file("common.jai", main_workspace);
+  add_build_file("input.jai", main_workspace);
+  add_build_file("render.jai", main_workspace);
+
+  // Add entity files
+  add_build_file("entities/Cube.jai", main_workspace);
+  add_build_file("entities/Curiosity.jai", main_workspace);
+  add_build_file("entities/Gizmo.jai", main_workspace);
+  add_build_file("entities/Sphere.jai", main_workspace);
   
   while true {
     msg := compiler_wait_for_message();

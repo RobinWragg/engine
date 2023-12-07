@@ -83,7 +83,7 @@ editor_render :: () {
   render_internal(false);
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 should_look := false;
 should_update := true;

@@ -101,7 +101,7 @@ main :: () {
   print("\nExiting main()\n");
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 // Imports apparently shouldn't be accessible from other files, but they are, because beta.
 #import "Basic";

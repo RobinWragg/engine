@@ -166,7 +166,7 @@ add_cube_triangles :: (vertices: *[..]v3, size: f32 = 1.0) {
   array_add(vertices, v3.{1, 1, 1} * size);
 }
 
-#scope_file ////////////////////////////////////////////////////////////////////////////////////////
+#scope_file
 
 unit_tests :: () {
   print("Running rw_math unit tests\n");
